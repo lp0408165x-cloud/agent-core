@@ -1,0 +1,204 @@
+{
+  "name": "@gtc-tech/agent-core",
+  "version": "1.0.1",
+  "description": "Agent Core - LLM-powered task automation with CorePlanner, Executor, and StateMachine architecture",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "agent-core": "./dist/cli/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./core": {
+      "import": {
+        "types": "./dist/core/index.d.mts",
+        "default": "./dist/core/index.mjs"
+      },
+      "require": {
+        "types": "./dist/core/index.d.ts",
+        "default": "./dist/core/index.js"
+      }
+    },
+    "./llm": {
+      "import": {
+        "types": "./dist/llm/index.d.mts",
+        "default": "./dist/llm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/llm/index.d.ts",
+        "default": "./dist/llm/index.js"
+      }
+    },
+    "./persistence": {
+      "import": {
+        "types": "./dist/persistence/index.d.mts",
+        "default": "./dist/persistence/index.mjs"
+      },
+      "require": {
+        "types": "./dist/persistence/index.d.ts",
+        "default": "./dist/persistence/index.js"
+      }
+    },
+    "./persistence/node": {
+      "node": {
+        "import": {
+          "types": "./dist/persistence/node.d.mts",
+          "default": "./dist/persistence/node.mjs"
+        },
+        "require": {
+          "types": "./dist/persistence/node.d.ts",
+          "default": "./dist/persistence/node.js"
+        }
+      }
+    },
+    "./persistence/browser": {
+      "browser": {
+        "import": {
+          "types": "./dist/persistence/browser.d.mts",
+          "default": "./dist/persistence/browser.mjs"
+        },
+        "require": {
+          "types": "./dist/persistence/browser.d.ts",
+          "default": "./dist/persistence/browser.js"
+        }
+      },
+      "default": {
+        "import": "./dist/persistence/browser.mjs",
+        "require": "./dist/persistence/browser.js"
+      }
+    },
+    "./realtime": {
+      "import": {
+        "types": "./dist/realtime/index.d.mts",
+        "default": "./dist/realtime/index.mjs"
+      },
+      "require": {
+        "types": "./dist/realtime/index.d.ts",
+        "default": "./dist/realtime/index.js"
+      }
+    },
+    "./realtime/server": {
+      "node": {
+        "import": {
+          "types": "./dist/realtime/server.d.mts",
+          "default": "./dist/realtime/server.mjs"
+        },
+        "require": {
+          "types": "./dist/realtime/server.d.ts",
+          "default": "./dist/realtime/server.js"
+        }
+      }
+    },
+    "./realtime/client": {
+      "import": {
+        "types": "./dist/realtime/client.d.mts",
+        "default": "./dist/realtime/client.mjs"
+      },
+      "require": {
+        "types": "./dist/realtime/client.d.ts",
+        "default": "./dist/realtime/client.js"
+      }
+    },
+    "./plugins": {
+      "import": {
+        "types": "./dist/plugins/index.d.mts",
+        "default": "./dist/plugins/index.mjs"
+      },
+      "require": {
+        "types": "./dist/plugins/index.d.ts",
+        "default": "./dist/plugins/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup && node -e \"const fs=require('fs');const f='dist/cli/index.js';fs.writeFileSync(f,'#!/usr/bin/env node\\n'+fs.readFileSync(f));\"",
+    "build:watch": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest --coverage",
+    "test:e2e": "npx ts-node tests/run-tests.ts",
+    "demo": "npx ts-node tests/demo.ts",
+    "clean": "rm -rf dist",
+    "prepack": "npm run clean && npm run build",
+    "prepublishOnly": "npm run test:run",
+    "release": "npm run prepack && npm run prepublishOnly && npm publish --access public",
+    "release:dry": "npm run prepack && npm pack --dry-run",
+    "release:provenance": "npm run prepack && npm run prepublishOnly && npm publish --provenance --access public"
+  },
+  "keywords": [
+    "agent",
+    "llm",
+    "ai",
+    "planner",
+    "executor",
+    "state-machine",
+    "automation",
+    "openai",
+    "anthropic",
+    "claude",
+    "gpt",
+    "task-automation",
+    "workflow"
+  ],
+  "author": {
+    "name": "Agent Core Contributors"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lp0408165x-cloud/agent-core.git"
+  },
+  "homepage": "https://github.com/lp0408165x-cloud/agent-core#readme",
+  "bugs": {
+    "url": "https://github.com/lp0408165x-cloud/agent-core/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vitest/coverage-v8": "^1.0.4",
+    "eslint": "^8.55.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.2",
+    "vitest": "^1.0.4"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "optionalDependencies": {
+    "ws": "^8.14.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "sideEffects": false
+}

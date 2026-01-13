@@ -1,0 +1,47 @@
+# Source files (use dist instead)
+src/
+
+# Tests and fixtures
+tests/
+*.test.ts
+*.spec.ts
+vitest.config.ts
+coverage/
+
+# Test data - NEVER publish real documents
+fixtures/
+mocks/
+*.pdf
+*.xlsx
+*.docx
+
+# Development files
+.git/
+.github/
+.vscode/
+.idea/
+
+# Config files
+tsconfig.json
+tsup.config.ts
+.eslintrc*
+.prettierrc*
+.editorconfig
+
+# Build artifacts
+*.log
+*.tgz
+.DS_Store
+Thumbs.db
+
+# Documentation sources (publish README only)
+docs/
+PUBLISHING.md
+
+# Examples directory
+examples/
+
+# Environment and secrets
+.env*
+*.key
+*.pem

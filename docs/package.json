@@ -1,0 +1,14 @@
+{
+  "name": "@gtc-tech/agent-core-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent Core Documentation",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0"
+  }
+}
