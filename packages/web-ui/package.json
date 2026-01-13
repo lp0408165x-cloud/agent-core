@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "description": "Agent Core - React UI for task monitoring",
   "type": "module",
+  "license": "MIT",
+  "author": "GTC Tech",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lp0408165x-cloud/agent-core.git",
+    "directory": "packages/web-ui"
+  },
+  "homepage": "https://lp0408165x-cloud.github.io/agent-core/",
+  "bugs": {
+    "url": "https://github.com/lp0408165x-cloud/agent-core/issues"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
