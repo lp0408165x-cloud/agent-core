@@ -4,7 +4,7 @@ export default defineConfig({
   title: 'Agent Core',
   description: 'TypeScript LLM Agent Framework for Task Automation',
   base: '/agent-core/',  // ← 新增
-  
+  ignoreDeadLinks: true,
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/agent-core/logo.svg' }],  // ← 修改
   ],
