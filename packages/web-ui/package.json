@@ -1,6 +1,6 @@
 {
   "name": "@gtc-tech/agent-core-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Agent Core - React UI for task monitoring",
   "type": "module",
   "license": "MIT",
@@ -23,7 +23,7 @@
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./styles.css": "./dist/styles.css"
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist"
