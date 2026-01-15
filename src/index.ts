@@ -140,6 +140,22 @@ export {
   createMiddlewarePlugin
 } from './plugins';
 
+// -------------------- Skills (Re-export for convenience) --------------------
+export {
+  SkillManager,
+  createSkillManager,
+  cbpComplianceSkill
+} from './skills';
+
+export type {
+  Skill,
+  SkillCategory,
+  SkillStatus,
+  SkillTemplate,
+  SkillRule,
+  SkillExample,
+  SkillManagerInterface
+} from './skills';
 // ============================================
 // Quick Start Example
 // ============================================
